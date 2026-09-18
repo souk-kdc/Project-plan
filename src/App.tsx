@@ -111,11 +111,11 @@ export default function App() {
     localStorage.setItem(STORAGE_KEY_LANG, language);
   }, [language]);
 
-  const showToast = (msg: string) => {
+  const showToast = (msg: string, duration = 4000) => {
     setToastMessage(msg);
     setTimeout(() => {
       setToastMessage((prev) => (prev === msg ? null : prev));
-    }, 4000);
+    }, duration);
   };
 
   // Google Sign-in Handler
@@ -133,7 +133,11 @@ export default function App() {
       }
     } catch (err: any) {
       console.error('Sign-in failed:', err);
-      showToast(language === 'lo' ? 'ການເຂົ້າສູ່ລະບົບບໍ່ສຳເລັດ ກະລຸນາລອງໃໝ່' : 'Sign-in failed. Please retry.');
+      showToast(
+        err.message ||
+          (language === 'lo' ? 'ການເຂົ້າສູ່ລະບົບບໍ່ສຳເລັດ ກະລຸນາລອງໃໝ່' : 'Sign-in failed. Please retry.'),
+        9000
+      );
     } finally {
       setIsSigningIn(false);
     }
