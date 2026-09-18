@@ -1,0 +1,6 @@
+{
+  "name": "Project Plan Pro (MS Project & Google Sheets)",
+  "description": "MS Project style project management app with WBS tasks, subtasks, resource allocation, interactive Gantt chart, and real-time Google Sheets synchronization.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
